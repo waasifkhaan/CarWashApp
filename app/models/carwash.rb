@@ -1,5 +1,5 @@
-class Carwash < ApplicationRecord::Base
+class Carwash < ApplicationRecord
   belongs_to :detailer
   belongs_to :car
-  belongs_to :client , through: :car
+  has_one :client , through: :car
 end
