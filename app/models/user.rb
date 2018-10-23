@@ -1,5 +1,6 @@
-class Client < ApplicationRecord
+class User < ApplicationRecord
+  has_many :cars
   has_many :carwashes
   has_many :detailers, through: :carwashes
-  has_many :cars
+
 end

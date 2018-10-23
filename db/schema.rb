@@ -10,36 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_000115) do
+ActiveRecord::Schema.define(version: 2018_10_22_233054) do
 
   create_table "cars", force: :cascade do |t|
     t.string "make"
     t.string "model"
-    t.integer "client_id"
+    t.integer "user_id"
     t.string "license_plate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "carwashes", force: :cascade do |t|
-    t.integer "client_id"
+    t.integer "user_id"
     t.integer "detailer_id"
-    t.string "cost"
-    t.string "client_rating"
-    t.string "client_comments"
+    t.integer "user_rating"
+    t.string "user_comments"
     t.string "detailer_comments"
-  end
-
-  create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.integer "zipcode"
-    t.integer "age"
-    t.integer "tip_rating"
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "detailers", force: :cascade do |t|
     t.string "name"
     t.integer "age"
+    t.string "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.integer "zipcode"
     t.string "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

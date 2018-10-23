@@ -3,7 +3,7 @@ class CreateCars < ActiveRecord::Migration[5.2]
     create_table :cars do |t|
       t.string :make
       t.string :model #  like sedan or SUV
-      t.integer :client_id
+      t.integer :user_id
       t.string :license_plate
 
       t.timestamps
