@@ -5,3 +5,5 @@
 <p><%= @user.email %></p>
 <p><%= @user.age %></p>
 <p><%= @user.zipcode %></p>
+
+<%= link_to 'logout', session_path, method: 'delete' %>
