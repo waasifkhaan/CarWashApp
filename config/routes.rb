@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root 'welcome#welcome'
   resources :clients
   resources :cars
   resources :detailers
