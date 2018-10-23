@@ -27,8 +27,7 @@ class UsersController < ApplicationController
       @user = User.new
     end
 
-    def index
-    end
+   
 
 
   private
@@ -37,5 +36,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :zipcode, :age, :password)
   end
 
-  end
+  
 end
