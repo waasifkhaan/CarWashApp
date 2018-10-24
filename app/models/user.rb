@@ -5,5 +5,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :name, :email, presence: true
   validates :email, uniqueness: true
+  validates :zipcode, length: {is: 6}, allow_blank: false
+  validates :age, numericality: { less_than_or_equal_to: 120,  only_integer: true }
 
 end

@@ -40,5 +40,16 @@
    height: 290px;
    text-align: left;
  }
+ .branding {
+  clear: both;
+}
+
+footer.branding {
+  position:absolute;
+  bottom:0;
+  border-top: 2px solid #ccc;
+  margin-top: 20px;
+  padding-top: 20px;
+}
 
  

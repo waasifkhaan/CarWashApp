@@ -25,7 +25,7 @@
           <%= link_to "#{current_user.name}'s Profile", user_path(current_user), class: "navbar-brand" %>
          <% else %>
           <%= link_to 'Signup', new_user_path, class: "navbar-brand" %>
-          <%= link_to 'Login', new_session_path, class: "navbar-brand" %>
+          <%= link_to 'Login', login_path, class: "navbar-brand" %>
         <% end %>
         </div>
         <div class="navbar-collapse collapse">
@@ -39,6 +39,11 @@
     <!-- content -->
     <div class="container"  role="main">
       <%= yield %>
+    <footer class="branding">
+      <small>&copy; 2018 <strong>RailsProjectCarWashApp</strong></small><br>
+    </footer>
     </div>
+
+
   </body>
 </html>
