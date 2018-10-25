@@ -1,0 +1,18 @@
+<h1>Carwash details !</h1>
+<%binding.pry%>
+<div>
+<%= Detailer.find(@carwash.detailer_id).name %> 
+</div>
+washed 
+<div>
+<%= User.find(@carwash.user_id).name %> 
+</div>
+car for 
+<div>
+<%= Detailer.find(@carwash.detailer_id).cost %> 
+</div>
+
+Last Updated at <%= @carwash.readable_time %>
+
+<p> Would you like to leave a feedback! </p>
+<p><%= link_to "Leave feedback", new_user_car_path(@user)  %> 
