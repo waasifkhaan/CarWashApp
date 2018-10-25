@@ -1,15 +1,22 @@
 <h1> Make a carwash appointment!</h1>
 <%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'create') do |f| %>
 
-<div>
-<%= f.label :detailer %>
-<%= f.collection_check_boxes :detailer_id, @detailers, :id, :rating%>
+<div> 
+<%= f.label :car %><br>
+<%= f.collection_check_boxes :car_id, @cars, :id, :model %>
 </div>
 <div>
-<%= f.label :cost%>
-<%= f.number_field :cost %>
+<%= f.label :detailer %><br>
+<%= f.collection_check_boxes(:detailer_id, @detailers , :id, :name_rating) do |b| 
+  
+  b.label { b.check_box }
+  end
+  %> 
+
+
 </div>
-<div>
+
+
 
 <%= f.submit %>
 <% end %>
