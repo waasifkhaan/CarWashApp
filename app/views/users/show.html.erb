@@ -1,9 +1,7 @@
-<h3>User info!</h3>
-
-<p><%= @user.name %></p>
-
+<h3><%= @user.name %> Profile!</h3>
 <p><%= @user.email %></p>
 <p><%= @user.age %></p>
 <p><%= @user.zipcode %></p>
+<p><%= link_to "#{@user.name}'s is it time for a new carwash? ", new_user_carwash_path(@user)  %> 
 
 

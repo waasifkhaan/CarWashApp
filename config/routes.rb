@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end 
   resources :cars
   resources :detailers
-  resources :carwashes
+  
   resources :sessions
   
   get 'login' => 'sessions#new'
