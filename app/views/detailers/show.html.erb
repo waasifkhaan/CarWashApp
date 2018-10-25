@@ -1,0 +1,8 @@
+<h1><%= @detailer.name%> carwash history </h1>
+<% @detailer.carwashes.each do |carwash| %>
+    <p>Washed <%= link_to User.find(carwash.user_id).name, user_path(User.find(carwash.user_id)) %> car on <%= carwash.readable_time%> </p>
+    <p><strong>Cost:</strong> <%= carwash.cost %> dollars</p> 
+    <p><strong>Rating: </strong> <%= carwash.user_rating %> out of 5</p> 
+    <p><strong><%=User.find(carwash.user_id).name%> comments :</strong><%= carwash.user_comments %></p>
+    <p><strong><%=@detailer.name%> comments :</strong> <%= carwash.detailer_comments %></p>
+<% end %>

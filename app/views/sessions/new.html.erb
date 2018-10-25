@@ -6,8 +6,8 @@
 <%= password_field_tag(:password) %>
 <input type="submit" value="Sign In">
 <% end %>
-<div style="color:red;" >
-<%= session[:message]%>
-<%= session[:message] = nil%>
 
+<div style="color:red;" >
+    <%= session[:message]%>
+    <%= session[:message] = nil%>
 </div>
