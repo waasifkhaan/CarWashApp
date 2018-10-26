@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'welcome#welcome'
   resources :users do 
-    resources :carwashes, only: [:show, :index, :new, :create]
+    resources :carwashes, only: [:show, :index, :new, :create, :update]
     resources :cars, only: [:new, :create, :show]
   end 
   resources :cars
@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
+  get 'feedback', to: 'carwashes#feedback'
+  patch 'feedback/update', to: 'carwashes#feedback_update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
