@@ -1,33 +1,19 @@
 <h1> Make a carwash appointment!</h1>
+
 <%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'create') do |f| %>
-
-  <div> 
-    <%= f.label :car %>
-    <%= f.collection_radio_buttons :car_id, @cars, :id, :make %>
-  </div>
-
-  <div>
+   <div>
     <%= f.label :detailer %><br>
     <%= f.collection_radio_buttons(:detailer_id, @detailers , :id, :name_rating) do |b| %>
       <%= b.radio_button %> 
       <%= b.object.name_rating %><br>
     <% end %>
   </div><br>
-  
-  <div> (1-5)
-    <%= f.label :user_rating %><br>
-    <%= f.number_field :user_rating %>
-  </div>
-  
+
   <div> 
-    <%= f.label :user_comments %><br>
-    <%= f.text_field :user_comments %>
-  </div>
-    
-  <div> 
-    <%= f.label :detailer_comments %><br>
-    <%= f.text_field :detailer_comments%>
-   </div><br>
+  <%= f.label :car %>
+  <%= f.collection_radio_buttons :car_id, @cars , :id, :make %>
+</div>
+ 
 
 <%= f.submit %>
 <% end %>

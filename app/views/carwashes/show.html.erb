@@ -1,18 +1,48 @@
 <h1>Carwash details !</h1>
+<table>
+    <tr>
+        <th >Detailer Name</th>
+        <th ><%= @carwash.detailer.name %> </th>
+    </tr>
+    <tr>
+        <th > User Name</th>
+        <th ><%= @carwash.user.name %> </th>
+    </tr>
+    <tr>
+        <th > Car Model</th>
+        <th ><%= @carwash.car.model %> </th>
+    </tr>
+    <tr>
+        <th > $ Charged!</th>
+        <th ><%= @carwash.detailer.cost %> </th>
+    </tr>
+    <% if @carwash.user_rating %>
+        <tr>
+            <th > User Rating</th>
+            <th ><%= @carwash.user_rating %> </th>
+        </tr>
+    <% end %>
+    <% if @carwash.user_comment %>
+        <tr>
+            <th > User Comment!</th>
+            <th ><%= @carwash.user_comment %> </th>
+        </tr>
+    <% end %>
+</table>
 
-<div>
-<%= Detailer.find(@carwash.detailer_id).name %> 
+<% if !@carwash.user_rating %>
+<%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'update') do |f| %>
+<div> (1-5)
+    <%= f.label :user_rating %><br>
+    <%= f.number_field :user_rating %>
 </div>
-washed 
-<div>
-<%= User.find(@carwash.user_id).name %> 
-</div>
-car for 
-<div>
-<%= Detailer.find(@carwash.detailer_id).cost %> 
+
+<div> 
+    <%= f.label :user_comment %><br>
+    <%= f.text_field :user_comment %>
 </div>
 
-Last Updated at <%= @carwash.readable_time %><br>
 
-
-
+<%= f.submit %>
+<% end %>
+<% end %>

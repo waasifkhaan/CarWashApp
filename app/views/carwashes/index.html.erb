@@ -1,0 +1,5 @@
+<h1> User car wash history </h1>
+
+<% @carwashes.each do |carwash| %>
+    <%=link_to 'carwash_details', user_carwash_path(carwash.user, carwash) %>
+    <% end %>
