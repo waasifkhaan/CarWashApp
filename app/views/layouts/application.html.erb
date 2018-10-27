@@ -22,8 +22,8 @@
 
         <% if logged_in? %>
           <%= link_to "#{current_user.name}'s Profile", user_path(current_user), class: "navbar-brand" %>
-          <%= link_to "New carwash? ", new_user_carwash_path(current_user),class: "navbar-brand"  %> 
           <%= link_to "Add a new car?", new_user_car_path(current_user),  class: "navbar-brand" %> 
+          <%= link_to "New carwash? ", new_user_carwash_path(current_user),class: "navbar-brand"  %> 
           <%= link_to 'Carwash history', user_carwashes_path(current_user), class: "navbar-brand" %>
           <%= link_to 'Logout', logout_path , class: "navbar-brand" %>
         <% else %>

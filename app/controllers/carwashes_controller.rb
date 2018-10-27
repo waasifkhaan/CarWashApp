@@ -26,8 +26,7 @@ class CarwashesController < ApplicationController
            
         @carwash = Carwash.new(carwash_params)
         @carwash.user_id = params[:user_id]
-        if @carwash.valid?
-            @carwash.save
+        if @carwash.save
             redirect_to user_carwash_path(params[:user_id],@carwash)
         else 
             @detailers = Detailer.all
@@ -40,10 +39,8 @@ class CarwashesController < ApplicationController
         @carwash = Carwash.find(params[:id])
              
         if @carwash.update(carwash_params)
-            
             redirect_to user_carwash_path(params[:user_id], params[:id])   
-        else 
-            
+        else             
             render :show 
         end 
 

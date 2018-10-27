@@ -45,11 +45,13 @@
 }
 
 footer.branding {
-  position:absolute;
-  bottom:0;
-  border-top: 2px solid #ccc;
-  margin-top: 20px;
-  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
 
 table, th, td {

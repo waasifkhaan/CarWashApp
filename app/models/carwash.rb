@@ -4,6 +4,10 @@ class Carwash < ApplicationRecord
   belongs_to :car
   
   
+  validates :user_rating, numericality: { less_than_or_equal_to: 5 }
+  
+
+  
 
 
 

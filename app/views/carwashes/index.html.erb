@@ -1,8 +1,14 @@
 <h3> Car wash history </h3>
+
 <% if session[:carwash] %>
-<%= session[:carwash] %>
-<% session[:carwash].clear%>
+    <%= session[:carwash] %>
+    <% session[:carwash].clear%>
 <% end %>
+
+<% if @carwashes = [] %>
+    <%= "No Carwash appointments made yet" %>
+<% end %>
+
 <% @carwashes.each do |carwash| %>
     <ul>
         <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>

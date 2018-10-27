@@ -16,3 +16,18 @@
 </div>
 <%= f.submit %>
 <% end %>
+
+<% if @car.errors.any? %>
+  <div id="error_explanation" class="footer" >
+    <h4>
+      <%= pluralize(@car.errors.count, "error") %>
+      prohibited this user from being saved:
+    </h4>
+ 
+    <ul style="color:red;">
+    <% @car.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

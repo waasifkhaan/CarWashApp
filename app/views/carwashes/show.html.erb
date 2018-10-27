@@ -31,29 +31,22 @@
     <% end %>
 </table>
 
-<% if @carwash.user_rating %>
-<%= link_to 'Edit', edit_user_carwash_path(@carwash.user, @carwash) %>
-<% end %><br>
 
-<% if @carwash.user_rating %>
-<%= link_to 'Delete', user_carwash_path(@carwash.user, @carwash), :method => :delete  %>
-
-<% end %>
+<strong><%= link_to 'Edit', edit_user_carwash_path(@carwash.user, @carwash) %></strong><br>
+<strong><%= link_to 'Delete', user_carwash_path(@carwash.user, @carwash), :method => :delete, data: {confirm: "Are you sure?"} %></strong>
 
 
-<% if !@carwash.user_rating %>
-<%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'update') do |f| %>
-<div> (1-5)
-    <%= f.label :user_rating %><br>
-    <%= f.number_field :user_rating %>
-</div>
-
-<div> 
-    <%= f.label :user_comment %><br>
-    <%= f.text_field :user_comment %>
-</div>
-
-
-<%= f.submit %>
-<% end %>
+<% if @carwash.errors.any? %>
+  <div id="error_explanation" class="footer" >
+    <h4>
+      <%= pluralize(@carwash.errors.count, "error") %>
+      prohibited this user from being saved:
+    </h4>
+ 
+    <ul style="color:red;">
+    <% @carwash.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
