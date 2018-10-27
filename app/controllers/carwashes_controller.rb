@@ -55,6 +55,14 @@ class CarwashesController < ApplicationController
         @detailers = Detailer.all 
         @cars = @carwash.user.cars
     end 
+    def destroy 
+        @carwash = Carwash.find(params[:id])
+        
+        session[:carwash] = carwash_delete_alert(@carwash)
+        @carwash.destroy
+        redirect_to user_carwashes_path(@carwash.user)
+               
+    end 
    
 
     private
@@ -62,15 +70,10 @@ class CarwashesController < ApplicationController
     def carwash_params
       params.require(:carwash).permit(:car_id, :detailer_id, :user_rating, :user_comment, :detailer_comment)
     end
-
-    def feedback_params
-        params.require(:carwash).permit(:user_rating, :user_comment)
+    def carwash_delete_alert(carwash)
+        "#{carwash.car.model} washed by #{carwash.detailer.name} for $#{carwash.detailer.cost} DELETED on #{carwash.readable_time} "
     end 
 
-    # def valid
-    #     params[:carwash][:car_id] && params[:carwash][:detailer_id]
-    # end 
-  
   
 
 

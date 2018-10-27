@@ -5,4 +5,8 @@ module CarwashesHelper
         "#{carwash.car.model} washed by #{carwash.detailer.name} for $#{carwash.detailer.cost} on #{carwash.readable_time}"
         
     end 
+
+    
+
+    
 end

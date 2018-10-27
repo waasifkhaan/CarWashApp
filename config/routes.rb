@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
-  get 'feedback', to: 'carwashes#feedback'
-  patch 'feedback/update', to: 'carwashes#feedback_update'
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

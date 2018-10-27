@@ -12,5 +12,6 @@ class Carwash < ApplicationRecord
     self.updated_at.strftime("%m/%d/%Y")
   end  
 
+ 
 
 end

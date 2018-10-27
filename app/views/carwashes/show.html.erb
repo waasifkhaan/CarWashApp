@@ -30,8 +30,14 @@
         </tr>
     <% end %>
 </table>
+
 <% if @carwash.user_rating %>
-<%=link_to 'Edit', edit_user_carwash_path(@carwash.user, @carwash) %>
+<%= link_to 'Edit', edit_user_carwash_path(@carwash.user, @carwash) %>
+<% end %><br>
+
+<% if @carwash.user_rating %>
+<%= link_to 'Delete', user_carwash_path(@carwash.user, @carwash), :method => :delete  %>
+
 <% end %>
 
 
