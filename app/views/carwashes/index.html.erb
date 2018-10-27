@@ -1,5 +1,7 @@
-<h1> User car wash history </h1>
+<h3> Car wash history </h3>
 
 <% @carwashes.each do |carwash| %>
-    <%=link_to 'carwash_details', user_carwash_path(carwash.user, carwash) %>
-    <% end %>
+    <ul>
+        <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>
+    </ul>
+<% end %>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'welcome#welcome'
   resources :users do 
-    resources :carwashes, only: [:show, :index, :new, :create, :update]
+    resources :carwashes
     resources :cars, only: [:new, :create, :show]
   end 
   resources :cars

@@ -14,17 +14,14 @@ class CarwashesController < ApplicationController
     def index 
         user = User.find(params[:user_id])
         @carwashes = user.carwashes
-        binding.pry
-    
+           
     end 
     
     def show
        
-        @carwash = Carwash.find(params[:id])
-        
-        
-      
+        @carwash = Carwash.find(params[:id]) 
     end 
+
     def create 
            
         @carwash = Carwash.new(carwash_params)
@@ -40,18 +37,23 @@ class CarwashesController < ApplicationController
     end 
     
     def update 
-
         @carwash = Carwash.find(params[:id])
-        
-        if !@carwash.user_rating && !@carwash.user_comment
-            @carwash.update(feedback_params)
+             
+        if @carwash.update(carwash_params)
+            
             redirect_to user_carwash_path(params[:user_id], params[:id])   
         else 
-            @carwash = Carwash.find(params[:id])
+            
             render :show 
         end 
 
+    end 
 
+    def edit
+        
+        @carwash = Carwash.find(params[:id])
+        @detailers = Detailer.all 
+        @cars = @carwash.user.cars
     end 
    
 

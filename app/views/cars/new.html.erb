@@ -1,6 +1,6 @@
 <h1>Create a User! </h1>
 
-<%= form_for(@car) do |f| %>
+<%= form_for @car, :url => url_for(:controller => 'cars', :action => 'create') do |f| %>
 <div>
 <%= f.label :make %>
 <%= f.text_field :make %>

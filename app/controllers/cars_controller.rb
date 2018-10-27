@@ -1,22 +1,25 @@
 class CarsController < ApplicationController
 
     def new 
-        binding.pry
+       
         @car = User.find(params[:user_id]).cars.build
+        
     
     end 
 
     def create 
         
-        car = Car.new(car_params)
-        if car.save 
-            redirect_to user_car_path
+        @car = Car.new(car_params)
+        @car.user_id = params[:user_id]
+        if @car.save 
+            redirect_to user_car_path(params[:user_id],@car)
         else 
             render :new
         end 
     end 
     def show 
-        @car = Car.find(params[:car_id])
+        
+        @car = Car.find(params[:id])
     end 
         
    

@@ -1,4 +1,5 @@
 <h1>Carwash details !</h1>
+<%= @carwash.id%>
 <table>
     <tr>
         <th >Detailer Name</th>
@@ -29,6 +30,10 @@
         </tr>
     <% end %>
 </table>
+<% if @carwash.user_rating %>
+<%=link_to 'Edit', edit_user_carwash_path(@carwash.user, @carwash) %>
+<% end %>
+
 
 <% if !@carwash.user_rating %>
 <%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'update') do |f| %>

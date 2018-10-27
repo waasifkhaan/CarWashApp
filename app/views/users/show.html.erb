@@ -1,12 +1,12 @@
 <h3><%= @user.name %> Profile!</h3>
-<p><%= @user.email %></p>
-<p><%= @user.age %></p>
-<p><%= @user.zipcode %></p>
+<p>Email: <%= @user.email %></p>
+<p>Age: <%= @user.age %></p>
+<p>Zipcode: <%= @user.zipcode %></p>
 
 
-<p><%= link_to "#{@user.name}'s car wash history", user_carwashes_path(@user)  %> 
-<p><%= link_to "#{@user.name}'s is it time for a new carwash? ", new_user_carwash_path(@user)  %> 
 
-<p><%= link_to "Add a new car", new_user_car_path(@user)  %> 
+
+
+
 
 

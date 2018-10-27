@@ -9,7 +9,7 @@ class Carwash < ApplicationRecord
 
 
   def readable_time 
-    self.updated_at.strftime("%m/%d/%Y at %I:%M%p")
+    self.updated_at.strftime("%m/%d/%Y")
   end  
 
 
