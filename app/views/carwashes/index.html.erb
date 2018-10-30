@@ -18,10 +18,11 @@
 <% end %>
 
 <h3> List of uncommented carwashes! </h3>
-<% if Carwash.uncommented.empty? %>
+
+<% if @user.carwashes.uncommented.empty? %>
     "No comment less carwashes at this time!"
 <% else %>    
-    <% Carwash.uncommented.each do |carwash| %>
+    <% @user.carwashes.uncommented.each do |carwash| %>
         <ul>
             <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>
         </ul>   
@@ -29,10 +30,10 @@
 <% end %>
 
 <h3> List of unrated carwashes! </h3>
-<% if Carwash.un_rated.empty? %>
+<% if @user.carwashes.un_rated.empty? %>
     "No rating less carwashes at this time!"
 <% else %>    
-    <% Carwash.un_rated.each do |carwash| %>
+    <% @user.carwashes.un_rated.each do |carwash| %>
         <ul>
             <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>
         </ul>   
