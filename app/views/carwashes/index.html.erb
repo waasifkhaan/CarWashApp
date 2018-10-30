@@ -1,16 +1,40 @@
 <h3> Car wash history </h3>
 
 <% if session[:carwash] %>
+<div style="color:red;" >
     <%= session[:carwash] %>
+</div>
     <% session[:carwash].clear%>
 <% end %>
 
-<% if @carwashes = [] %>
-    <%= "No Carwash appointments made yet" %>
+<% if @user.carwashes.empty? %>
+    "No appointments made yet!"
+<% else %>    
+    <% @user.carwashes.each do |carwash| %>
+        <ul>
+            <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>
+        </ul>   
+    <% end %>  
 <% end %>
 
-<% @carwashes.each do |carwash| %>
-    <ul>
-        <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>
-    </ul>
+<h3> List of uncommented carwashes! </h3>
+<% if Carwash.uncommented.empty? %>
+    "No comment less carwashes at this time!"
+<% else %>    
+    <% Carwash.uncommented.each do |carwash| %>
+        <ul>
+            <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>
+        </ul>   
+    <% end %>  
+<% end %>
+
+<h3> List of unrated carwashes! </h3>
+<% if Carwash.un_rated.empty? %>
+    "No rating less carwashes at this time!"
+<% else %>    
+    <% Carwash.un_rated.each do |carwash| %>
+        <ul>
+            <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>
+        </ul>   
+    <% end %>  
 <% end %>

@@ -12,8 +12,8 @@ class CarwashesController < ApplicationController
     end 
 
     def index 
-        user = User.find(params[:user_id])
-        @carwashes = user.carwashes
+        @user = User.find(params[:user_id])
+        binding.pry  
            
     end 
     
