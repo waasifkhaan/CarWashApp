@@ -1,6 +1,6 @@
-require 'rack-flash'
+
 class ApplicationController < ActionController::Base
-    use Rack::Flash
+    
 
     def logged_in?
         !!current_user
