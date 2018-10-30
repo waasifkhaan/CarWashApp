@@ -3,3 +3,12 @@
 <p><strong>Age: </strong> <%= @user.age %></p>
 <p><strong>Zipcode: </strong> <%= @user.zipcode %></p>
 
+
+<h3> <%= @user.name%> cars ! </h3>
+<% @user.cars.each do |car| %> 
+   <ul>
+    <li><strong><%= car.model%></strong></li>
+    <li><%= car.make%></li>
+    <li><%= car.license_plate%></li> 
+    </ul>
+<% end %> 

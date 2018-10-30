@@ -18,16 +18,12 @@
 <% end %>
 
 <h3> List of uncommented carwashes! </h3>
-
-<% if @user.carwashes.uncommented.empty? %>
-    "No comment less carwashes at this time!"
-<% else %>    
     <% @user.carwashes.uncommented.each do |carwash| %>
         <ul>
             <li><%=link_to carwash_details(carwash), user_carwash_path(carwash.user, carwash) %></li>
         </ul>   
     <% end %>  
-<% end %>
+
 
 <h3> List of unrated carwashes! </h3>
 <% if @user.carwashes.un_rated.empty? %>
