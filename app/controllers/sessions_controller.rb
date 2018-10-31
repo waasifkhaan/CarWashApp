@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
         if logged_in?
           redirect_to user_path(session[:user_id])
         else
+          
           if auth_hash = request.env["omniauth.auth"]
             oauth_email = auth_hash["info"]["email"]
            
