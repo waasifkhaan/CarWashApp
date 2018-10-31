@@ -3,12 +3,18 @@
 <p><strong>Age: </strong> <%= @user.age %></p>
 <p><strong>Zipcode: </strong> <%= @user.zipcode %></p>
 
+<strong><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %></strong><br>
+
 
 <h3> <%= @user.name%> cars ! </h3>
-<% @user.cars.each do |car| %> 
-   <ul>
-    <li><strong><%= car.model%></strong></li>
-    <li><%= car.make%></li>
-    <li><%= car.license_plate%></li> 
+<% if @user.cars.empty? %>
+    "No cars yet!"
+<% else %>
+    <% @user.cars.each do |car| %> 
+    <ul>
+        <li><strong><%= car.model%></strong></li>
+        <li><%= car.make%></li>
+        <li><%= car.license_plate%></li> 
     </ul>
+    <% end %>
 <% end %> 

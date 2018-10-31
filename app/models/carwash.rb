@@ -12,10 +12,7 @@ class Carwash < ApplicationRecord
       carwash.validates :user_rating, presence: true, numericality: { less_than_or_equal_to: 5 }
     end
 
-  def has_id?
-    self.id ? true : false
-  end 
-
+  
   
 
 

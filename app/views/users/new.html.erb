@@ -1,28 +1,5 @@
 <h1>Create a User! </h1>
-<%= form_for(@user) do |f| %>
-<div>
-<%= f.label :name %>
-<%= f.text_field :name %>
-</div>
-<div>
-<%= f.label :age %>
-<%= f.number_field :age %>
-</div>
-<div>
-<%= f.label :email %>
-<%= f.email_field :email %>
-</div>
-<div>
-<%= f.label :zipcode %>
-<%= f.number_field :zipcode %>
-</div>
-<div>
-<%= f.label :password %>
-<%= f.password_field :password %>
-</div >
-<%= f.submit %>
-
-<% end %>
+<%= render partial: 'form' %>
 
 <% if @user.errors.any? %>
   <div id="error_explanation" class="footer" >

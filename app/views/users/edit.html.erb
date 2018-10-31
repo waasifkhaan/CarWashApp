@@ -1,0 +1,17 @@
+<h1>Update a User! </h1>
+<%= render partial: 'form' %>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation" class="footer" >
+    <h4>
+      <%= pluralize(@user.errors.count, "error") %>
+      prohibited this user from being saved:
+    </h4>
+ 
+    <ul style="color:red;">
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

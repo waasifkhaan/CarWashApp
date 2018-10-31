@@ -30,7 +30,7 @@
     <% end %>
 </table>
 
-<% binding.pry %>
+
 <% if !@carwash.user_comment || !@carwash.user_rating %>
 <%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'update') do |f| %>
     <%= f.hidden_field :page, :value => "show" %>

@@ -44,7 +44,8 @@ class CarwashesController < ApplicationController
         if @carwash.update(carwash_params)
             redirect_to user_carwash_path(params[:user_id], params[:id])   
         else   
-            
+            @carwash.user_comment = nil
+            @carwash.user_rating = nil 
             @detailers = Detailer.all 
             @cars = @carwash.user.cars
             render params[:carwash][:page].to_sym          
