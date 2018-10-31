@@ -10,12 +10,15 @@ class SessionsController < ApplicationController
         else
           if auth_hash = request.env["omniauth.auth"]
             oauth_email = auth_hash["info"]["email"]
-            binding.pry
+           
+            
             if user = User.find_by(:email => oauth_email)
               session[:user_id] = user.id 
               redirect_to user_path(session[:user_id])
             else 
+              
               user = User.new(:email => oauth_email, :password => SecureRandom.hex)
+              
               if user.save 
                 session[:user_id] =user.id 
                 redirect_to user_path(session[:user_id])
@@ -34,7 +37,7 @@ class SessionsController < ApplicationController
             end 
           else 
             session[:message] = "User does not exist!"
-            redirect_to login_path  
+            # redirect_to login_path  
           end
         end
     end

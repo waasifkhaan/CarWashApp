@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+<!-- 
+
+ validates :name, :email, presence: true
+  validates :email, uniqueness: true
+  validates :zipcode, length: {is: 5}, allow_blank: false
+  validates :age, numericality: { less_than_or_equal_to: 120,  only_integer: true } -->

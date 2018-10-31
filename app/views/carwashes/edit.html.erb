@@ -1,6 +1,7 @@
 <h1> Edit the carwash details! </h1>
 
 <%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'update') do |f| %>
+    <%= f.hidden_field :page, :value => "edit" %>
 <div>
     <%= f.label :detailer %><br>
     <%= f.collection_radio_buttons(:detailer_id, @detailers , :id, :name_rating) do |b| %>
@@ -26,3 +27,19 @@
 
 <%= f.submit %>
  <% end %>
+
+ 
+<% if @carwash.errors.any? %>
+<div id="error_explanation" class="footer" >
+  <h4>
+    <%= pluralize(@carwash.errors.count, "error") %>
+    prohibited this user from being saved:
+  </h4>
+
+  <ul style="color:red;">
+  <% @carwash.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>

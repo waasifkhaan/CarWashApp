@@ -20,7 +20,7 @@ class CarwashesController < ApplicationController
     end 
     
     def show
-       
+        
         @carwash = Carwash.find(params[:id]) 
     end 
 
@@ -38,12 +38,17 @@ class CarwashesController < ApplicationController
     end 
     
     def update 
+       
         @carwash = Carwash.find(params[:id])
              
         if @carwash.update(carwash_params)
             redirect_to user_carwash_path(params[:user_id], params[:id])   
-        else             
-            render :show 
+        else   
+            
+            @detailers = Detailer.all 
+            @cars = @carwash.user.cars
+            render params[:carwash][:page].to_sym          
+            
         end 
 
     end 

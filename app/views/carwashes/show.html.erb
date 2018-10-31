@@ -14,39 +14,55 @@
         <th ><%= @carwash.car.model %> </th>
     </tr>
     <tr>
-        <th > $ Charged!</th>
+        <th > $ Charged</th>
         <th ><%= @carwash.detailer.cost %> </th>
     </tr>
-    <% if @carwash.user_rating %>
-        <tr>
-            <th > User Rating</th>
-            <th ><%= @carwash.user_rating %> </th>
-        </tr>
-    <% end %>
-    <% if @carwash.user_comment %>
-        <tr>
-            <th > User Comment!</th>
-            <th ><%= @carwash.user_comment %> </th>
-        </tr>
+    <% if @carwash.user_comment && @carwash.user_rating %>
+    <tr>
+        <th > User Comment</th>
+        <th ><%= @carwash.user_comment %> </th>
+    </tr>
+
+    <tr>
+        <th > User Rating</th>
+        <th ><%= @carwash.user_rating %> </th>
+    </tr>
     <% end %>
 </table>
 
+<% binding.pry %>
+<% if !@carwash.user_comment || !@carwash.user_rating %>
+<%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'update') do |f| %>
+    <%= f.hidden_field :page, :value => "show" %>
+    <div> (1-5)
+        <%= f.label :user_rating %><br>
+        <%= f.number_field :user_rating, :value => 3 %>
+    </div><br>
+
+    <div> 
+        <%= f.label :user_comment %><br>
+        <%= f.text_field :user_comment %>
+    </div><br>
+
+
+    <%= f.submit %>
+<% end %>
+<% end %>
 
 <strong><%= link_to 'Edit', edit_user_carwash_path(@carwash.user, @carwash) %></strong><br>
 <strong><%= link_to 'Delete', user_carwash_path(@carwash.user, @carwash), :method => :delete, data: {confirm: "Are you sure?"} %></strong>
 
-
 <% if @carwash.errors.any? %>
-  <div id="error_explanation" class="footer" >
-    <h4>
-      <%= pluralize(@carwash.errors.count, "error") %>
-      prohibited this user from being saved:
-    </h4>
- 
-    <ul style="color:red;">
-    <% @carwash.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+<div id="error_explanation" class="footer" >
+  <h4>
+    <%= pluralize(@carwash.errors.count, "error") %>
+    prohibited this user from being saved:
+  </h4>
+
+  <ul style="color:red;">
+  <% @carwash.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
 <% end %>
