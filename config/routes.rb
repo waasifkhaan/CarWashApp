@@ -6,13 +6,12 @@ Rails.application.routes.draw do
     resources :cars, only: [:new, :create, :show]
   end 
   resources :cars
-  resources :detailers
-  
+    
   resources :sessions
   
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
-  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#oauth'
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,15 +1,20 @@
 
 <%= form_tag(controller: "sessions", action: "create", method: "POST") do %>
-<%= label_tag :email %>
-<%= text_field_tag(:email) %>
-<%= label_tag :password %>
-<%= password_field_tag(:password) %>
+    <%= label_tag :email %>
+    <%= text_field_tag(:email) %>
+    
+    <%= label_tag :password %>
+    <%= password_field_tag(:password) %>
+
 <input type="submit" value="Sign In">
 <% end %>
 <h3>External Providers</h3>
 <p><%= link_to "Login  with Github!", "/auth/github", class: "btn btn-primary" %></p>
 
+
 <div style="color:red;" >
     <%= session[:message]%>
-    <%= session[:message] = nil%>
+    <%= session[:message] = nil %>
 </div>
+
+

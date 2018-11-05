@@ -1,22 +1,15 @@
 class CarwashesController < ApplicationController
 
     def new 
-       
+     
         user = User.find(params[:user_id])
         @carwash = Carwash.new(user_id: params[:user_id])
         @detailers = Detailer.all
         @cars = user.cars
-        
-      
-        
     end 
 
     def index 
-        
         @user = User.find(params[:user_id])
-        
-        
-           
     end 
     
     def show
