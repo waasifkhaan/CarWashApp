@@ -1,30 +1,35 @@
-# README
+# Carwash Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Carwash connects the user to a detailer through a mobile application. Users on the go doing groceries , in a meeting or watching a football game on Sunday can call a detailer and get the job done without getting their hands messy. 
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Clone the carwash [repository]( https://github.com/waasifkhaan/CarWashApp)
 
-* System dependencies
+```bash
+git clone  https://github.com/waasifkhaan/CarWashApp
+```
 
-* Configuration
+## Usage
 
-* Database creation
+Run the following commands in the terminal 
 
-* Database initialization
+```Ruby o
+1. bundle install
+2. rake db: migrate 
+3. rake db :seed 
+4. rails s 
+```
 
-* How to run the test suite
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
+ The app is available as open source under the terms of the [MIT](https://choosealicense.com/licenses/mit/) license.
 
-* Deployment instructions
 
-* ...
-<!-- 
 
- validates :name, :email, presence: true
-  validates :email, uniqueness: true
-  validates :zipcode, length: {is: 5}, allow_blank: false
-  validates :age, numericality: { less_than_or_equal_to: 120,  only_integer: true } -->
+## Code of Conduct
+
+Everyone interacting in the CarWash  project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
+
