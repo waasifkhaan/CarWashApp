@@ -2,19 +2,18 @@
 
 <%= form_for @car, :url => url_for(:controller => 'cars', :action => 'create') do |f| %>
 <div>
-<%= f.label :make %>
-<%= f.text_field :make %>
+  <%= f.label :make %>
+  <%= f.text_field :make %>
 </div>
 <div>
-<%= f.label :model %>
-<%= f.text_field :model %>
+  <%= f.label :model %>
+  <%= f.text_field :model %>
 </div>
 <div>
-<div>
-<%= f.label :license_plate %>
-<%= f.text_field :license_plate %>
+  <%= f.label :license_plate %>
+  <%= f.text_field :license_plate %>
 </div>
-<%= f.submit %>
+  <%= f.submit %>
 <% end %>
 
 <% if @car.errors.any? %>
