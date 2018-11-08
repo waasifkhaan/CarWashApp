@@ -24,10 +24,12 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id 
         redirect_to user_path(session[:user_id])
       else 
-        @user = User.new(:email => oauth_email, :password => SecureRandom.hex)
+        
+        @user = User.new(:email => oauth_email,name: "Name", age: 25,  :password => SecureRandom.hex)
         @user.save 
-        session[:user_id] =user.id 
-        redirect_to user_path(session[:user_id])
+       
+        session[:user_id] =@user.id 
+        redirect_to user_path(@user.id)
       end    
     end 
     

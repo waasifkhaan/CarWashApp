@@ -5,7 +5,7 @@ class Carwash < ApplicationRecord
   
   scope :uncommented, -> { where(user_comment: [nil, '']) }
   
-  # validates :user_rating, numericality: { less_than_or_equal_to: 5 }
+
   
     with_options if: :has_id? do |carwash|
       carwash.validates :user_comment, presence: true

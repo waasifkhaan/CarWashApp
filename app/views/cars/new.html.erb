@@ -13,7 +13,7 @@
   <%= f.label :license_plate %>
   <%= f.text_field :license_plate, {class: 'form-control'} %>
 </div><br>
-  <%= f.submit nil, :class => 'btn btn-primary'  %>
+  <%= f.submit nil, value "Sign In" :class => 'btn btn-primary'  %>
 <% end %>
 
 <% if @car.errors.any? %>
