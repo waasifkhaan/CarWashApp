@@ -1,19 +1,19 @@
-<h1>Create a User! </h1>
+<h1>Create a new car! </h1>
 
 <%= form_for @car, :url => url_for(:controller => 'cars', :action => 'create') do |f| %>
 <div>
   <%= f.label :make %>
-  <%= f.text_field :make %>
+  <%= f.text_field :make, {class: 'form-control'} %>
 </div>
 <div>
   <%= f.label :model %>
-  <%= f.text_field :model %>
+  <%= f.text_field :model, {class: 'form-control'} %>
 </div>
 <div>
   <%= f.label :license_plate %>
-  <%= f.text_field :license_plate %>
-</div>
-  <%= f.submit %>
+  <%= f.text_field :license_plate, {class: 'form-control'} %>
+</div><br>
+  <%= f.submit nil, :class => 'btn btn-primary'  %>
 <% end %>
 
 <% if @car.errors.any? %>

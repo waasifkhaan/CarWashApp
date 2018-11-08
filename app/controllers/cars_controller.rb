@@ -5,6 +5,7 @@ class CarsController < ApplicationController
     end 
 
     def create 
+        
         @car = Car.new(car_params)
         @car.user_id = params[:user_id]
         if @car.save 
