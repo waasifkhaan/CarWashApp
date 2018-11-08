@@ -31,7 +31,7 @@ class CarwashesController < ApplicationController
     end 
     
     def update 
-        binding.pry
+       
        
         @carwash = Carwash.find(params[:id])
              
