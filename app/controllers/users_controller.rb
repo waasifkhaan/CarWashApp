@@ -1,15 +1,24 @@
 class UsersController < ApplicationController
 
   def show
+    
     if logged_in?
-      @user = User.find(params[:id])
+      if current_user.id != params[:id].to_i
+        session[:message] = "you do not have access to user with id: #{params[:id]} profile !"
+        redirect_to user_path(current_user) 
+      end 
+      @user = User.find(current_user.id)
     else
       redirect_to root_path
     end
   end
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to user_path(current_user)
+    else
+      @user = User.new
+    end 
   end
 
   def create
@@ -21,10 +30,6 @@ class UsersController < ApplicationController
       else
         render :new
       end
-    end
-
-    def signin
-      @user = User.new
     end
 
     def edit 

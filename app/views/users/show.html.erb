@@ -17,4 +17,9 @@
         <li><%= car.license_plate%></li> 
     </ul>
     <% end %>
-<% end %> 
+<% end %><br> 
+
+<div class="catalyst animated bounce">
+<%= session[:message]%>
+<%= session[:message] = nil %>
+</div>
