@@ -80,11 +80,23 @@ class CarwashesController < ApplicationController
     end 
 
     def edit
-        
-        @carwash = Carwash.find(params[:id])
-        @detailers = Detailer.all 
-        @cars = @carwash.user.cars
+        if logged_in?            
+            if current_user.id != params[:user_id].to_i
+              session[:message] = "you do not have access to user with id: #{params[:user_id]} profile !"
+              redirect_to edit_user_carwash_path(current_user) 
+            elsif !current_user.carwash_ids.include?(params[:id].to_i)
+                session[:message] = "you do not have access to carwash with id: #{params[:id]}!"
+                redirect_to user_carwashes_path(current_user)
+            else
+                @carwash = Carwash.find(params[:id])
+                @detailers = Detailer.all 
+                @cars = @carwash.user.cars
+            end    
+        else  
+            redirect_to root_path   
+        end   
     end 
+
     def destroy 
         @carwash = Carwash.find(params[:id])
         

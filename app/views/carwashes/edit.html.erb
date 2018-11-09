@@ -1,3 +1,8 @@
+<div class="catalyst animated bounce">
+  <%= session[:message]%>
+  <%= session[:message] = nil %>
+</div>
+
 <h1> Edit the carwash details! </h1>
 
 <%= form_for @carwash, :url => url_for(:controller => 'carwashes', :action => 'update') do |f| %>
