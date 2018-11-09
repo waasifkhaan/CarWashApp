@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     end
     
     def create
-      if logged_in?
+      if logged_in? 
         redirect_to user_path(session[:user_id])
       else
         
@@ -25,7 +25,6 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id 
         redirect_to user_path(session[:user_id])
       else 
-        
         @user = User.new(:email => oauth_email, name: "Name", age: 25,  :password => SecureRandom.hex)
         @user.save 
        
@@ -37,5 +36,6 @@ class SessionsController < ApplicationController
     def destroy
       session.clear
       redirect_to root_path
+      
     end
 end

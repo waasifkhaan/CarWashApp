@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :cars, only: [:new, :create, :show]
   end 
   resources :sessions, only: [:new, :create, :destroy]
+  get 'test' => 'detailers#test'
   
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
