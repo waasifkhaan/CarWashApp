@@ -1,3 +1,8 @@
+
+ <div class="catalyst animated bounce">
+ <%= session[:message]%>
+ <%= session[:message] = nil %>
+ </div>
 <h3> Car wash history </h3>
 
 <% if session[:carwash] %>
@@ -27,5 +32,5 @@
         </ul>   
     <% end %>  
     <% end %>
-
+   
 
