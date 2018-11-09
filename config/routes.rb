@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     resources :carwashes
     resources :cars, only: [:new, :create, :show]
   end 
-  resources :cars
-    
+  
   resources :sessions
   
   get 'login' => 'sessions#new'
