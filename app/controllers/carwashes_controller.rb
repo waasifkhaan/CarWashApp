@@ -1,11 +1,20 @@
 class CarwashesController < ApplicationController
 
     def new 
-     
-        user = User.find(params[:user_id])
-        @carwash = Carwash.new(user_id: params[:user_id])
-        @detailers = Detailer.all
-        @cars = user.cars
+        if logged_in?  
+                     
+            if current_user.id != params[:user_id].to_i
+              session[:message] = "you do not have access to user profile with id: #{params[:user_id]} !"
+              redirect_to new_user_carwash_path(current_user) 
+            else
+                user = User.find(params[:user_id])
+                @carwash = Carwash.new(user_id: params[:user_id])
+                @detailers = Detailer.all
+                @cars = user.cars 
+            end
+        else  
+            redirect_to root_path   
+        end 
     end 
 
     def index 
