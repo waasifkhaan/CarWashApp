@@ -14,4 +14,9 @@
     <% end %>
     </ul>
   </div>
-<% end %>
+<% end %><br>
+
+<div class="catalyst animated bounce">
+  <%= session[:message]%>
+  <%= session[:message] = nil %>
+</div>

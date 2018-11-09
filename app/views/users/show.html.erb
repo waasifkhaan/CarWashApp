@@ -12,9 +12,9 @@
 <% else %>
     <% @user.cars.each do |car| %> 
     <ul>
-        <li><strong><%= car.model%></strong></li>
-        <li><%= car.make%></li>
-        <li><%= car.license_plate%></li> 
+        <li><strong>Car Model: <%= car.model%></strong></li>
+        <li> Car Make: <%= car.make%></li>
+        <li>Car License Plate: <%= car.license_plate%></li> 
     </ul>
     <% end %>
 <% end %><br> 

@@ -33,7 +33,18 @@ class UsersController < ApplicationController
     end
 
     def edit 
-      @user = User.find(params[:id])
+      if logged_in?
+        if current_user.id != params[:id].to_i
+          session[:message] = "you do not have access to edit user with id: #{params[:id]} profile !"
+          redirect_to edit_user_path(current_user) 
+        else
+          @user = User.find(params[:id]) 
+
+        end
+      else 
+        redirect_t0 root_path 
+      end 
+         
     end 
 
     def update 

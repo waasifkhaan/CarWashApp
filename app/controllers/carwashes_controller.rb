@@ -13,8 +13,21 @@ class CarwashesController < ApplicationController
     end 
     
     def show
-        
-        @carwash = Carwash.find(params[:id]) 
+        if logged_in?
+            
+            if current_user.id != params[:user_id].to_i
+              session[:message] = "you do not have access to user with id: #{params[:user_id]} profile !"
+              redirect_to user_carwashes_path(current_user,params[:id]) 
+            elsif !current_user.carwash_ids.include?(params[:id].to_i)
+                session[:message] = "you do not have access to carwash with id: #{params[:id]}!"
+                redirect_to user_carwashes_path(current_user,params[:id])
+            else
+                @carwash = Carwash.find(params[:id]) 
+            end
+        else  
+            redirect_to root_path       
+        end 
+         
     end 
 
     def create 
